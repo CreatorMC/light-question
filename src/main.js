@@ -5,28 +5,28 @@ import App from './App.vue'
 import router from "./router"
 import axios from "axios"
 // Toast
-import { showToast } from 'vant';
+import { Toast } from 'vant';
 import 'vant/es/toast/style';
 
 // Dialog
-import { showDialog } from 'vant';
+import { Dialog } from 'vant';
 import 'vant/es/dialog/style';
 
 // Notify
-import { showNotify } from 'vant';
+import { Notify } from 'vant';
 import 'vant/es/notify/style';
 
 // ImagePreview
-import { showImagePreview } from 'vant';
+import { ImagePreview } from 'vant';
 import 'vant/es/image-preview/style';
 
 const app = createApp(App)
 app.use(createPinia())
 app.use(router)
-app.use(showToast)
-app.use(showDialog)
-app.use(showNotify)
-app.use(showImagePreview)
+app.use(Toast)
+app.use(Dialog)
+app.use(Notify)
+app.use(ImagePreview)
 // 全局配置axios
 axios.defaults.withCredentials = true
 app.config.globalProperties.$axios = axios
