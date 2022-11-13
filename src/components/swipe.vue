@@ -3,30 +3,33 @@ import { createApp } from 'vue';
 import { Swipe, SwipeItem } from 'vant';
 
 export default {
-  methods: {
-    onChange(index) {
-      Toast('当前 Swipe 索引：' + index);
-    }
-  }
-}
+  setup() {
+    const images = [
+       "./banner1.jpg",
+       "./banner2.jpg",
+       "./banner3.jpg",
+    ];
+    return { images };
+  },
+};
+
 </script>
 
 <template>
-    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-  <van-swipe-item>1</van-swipe-item>
-  <van-swipe-item>2</van-swipe-item>
-  <van-swipe-item>3</van-swipe-item>
-  <van-swipe-item>4</van-swipe-item>
+    <van-swipe :autoplay="3000" lazy-render touchable="true">
+  <van-swipe-item v-for="image in images" :key="image">
+    <img class="a" :src="image" />
+  </van-swipe-item>
 </van-swipe>
 </template>
 
 
-<style>
-  .my-swipe .van-swipe-item {
-    color: #fff;
-    font-size: 20px;
-    line-height: 150px;
-    text-align: center;
-    background-color: #39a9ed;
-  }
+<style  scoped>
+.a{
+  align-items: center;
+  /* width: 375px;
+  height: 220px; */
+  height: 100%;
+  width: 100%;
+}
 </style>
