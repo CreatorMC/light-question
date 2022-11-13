@@ -26,6 +26,8 @@ export default {
 <template>
   <HelloView v-show="visibleHello"></HelloView>
   <router-view></router-view>
+  <!-- 禁止页面缩放 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"/>
 </template>
 
 <style scoped>
