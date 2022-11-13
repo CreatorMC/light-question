@@ -1,23 +1,20 @@
 <script>
-import { ref } from 'vue';
 
-export default {
-  setup() {
-    const active = ref(0);
-    return { active };
-  },
-};
+import searchVue from './components/search.vue';
+import tabbarVue from './components/tabbar.vue';
 
+export default{
+  components:{
+    searchVue,tabbarVue
+  }
+}
 </script>
 
 <template>
-  <van-tabbar v-model="active">
-    <van-tabbar-item icon="wap-home-o">标签</van-tabbar-item>
-    <van-tabbar-item icon="search">标签</van-tabbar-item>
-    <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-    <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
-  </van-tabbar>
+  <searchVue></searchVue>
+  <tabbarVue></tabbarVue>
 </template>
 
 <style scoped>
+
 </style>
