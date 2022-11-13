@@ -20,7 +20,7 @@ export default {
 
 <template>
   <div class="size">
-    <van-button class="count-down z-index" type="default" size="small" round>
+    <van-button class="count-down z-index" type="default" size="small" round @click="visibleSelf">
       <van-count-down :time="time" format="ss s" @finish="visibleSelf" />
     </van-button>
     <van-image class="image" width="100%" height="100%" fit="cover" position="center" src="./hello.png" />
