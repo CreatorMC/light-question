@@ -23,9 +23,9 @@ export default {
     <van-button class="count-down z-index" type="default" size="small" round @click="visibleSelf">
       <van-count-down :time="time" format="ss s" @finish="visibleSelf" />
     </van-button>
-    <van-image class="image" width="100%" height="100%" fit="cover" position="center" src="./hello.png" />
+    <van-image class="image" width="100%" height="100%" fit="cover" position="center" src="../hello.png" />
     <van-image class="image z-index align" width="100%" height="15%" fit="contain" position="center"
-      src="./hello_bottom.png" />
+      src="../hello_bottom.png" />
   </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
   position: absolute;
   top: 0px;
   left: 0px;
-  z-index: 10;
+  z-index: 100;
   width: 100%;
   height: 100%;
 }
@@ -45,7 +45,7 @@ export default {
 }
 
 .z-index {
-  z-index: 10;
+  z-index: 100;
 }
 
 .align {

@@ -1,5 +1,8 @@
 <script>
+import { ref } from 'vue';
 import HelloView from './views/HelloView.vue';
+import searchVue from './components/search.vue';
+import tabbarVue from './components/tabbar.vue';
 
 export default {
   data() {
@@ -12,6 +15,9 @@ export default {
     searchVue,
     tabbarVue
   },
+  mounted() {
+    this.$router.push('/login/sms')
+  },
   setup() {
     const active = ref(0);
     return { active };
@@ -21,6 +27,7 @@ export default {
 
 <template>
   <HelloView v-show="visibleHello"></HelloView>
+  <router-view></router-view>
   <searchVue></searchVue>
   <tabbarVue></tabbarVue>
 </template>
