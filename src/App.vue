@@ -8,19 +8,15 @@ export default {
     }
   },
   components: {
-    HelloView
+    HelloView,
+    searchVue,
+    tabbarVue
   },
   setup() {
     const active = ref(0);
     return { active };
   },
 };
-
-export default{
-  components:{
-    searchVue,tabbarVue
-  }
-}
 </script>
 
 <template>
