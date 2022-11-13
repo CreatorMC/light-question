@@ -1,7 +1,20 @@
 <script>
+import HelloView from './views/HelloView.vue';
 
-import searchVue from './components/search.vue';
-import tabbarVue from './components/tabbar.vue';
+export default {
+  data() {
+    return {
+      visibleHello: true
+    }
+  },
+  components: {
+    HelloView
+  },
+  setup() {
+    const active = ref(0);
+    return { active };
+  },
+};
 
 export default{
   components:{
@@ -11,10 +24,10 @@ export default{
 </script>
 
 <template>
+  <HelloView v-show="visibleHello"></HelloView>
   <searchVue></searchVue>
   <tabbarVue></tabbarVue>
 </template>
 
 <style scoped>
-
 </style>
