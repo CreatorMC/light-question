@@ -1,5 +1,8 @@
 <script>
+import { ref } from 'vue';
 import HelloView from './views/HelloView.vue';
+import searchVue from './components/search.vue';
+import tabbarVue from './components/tabbar.vue';
 
 export default {
   data() {
