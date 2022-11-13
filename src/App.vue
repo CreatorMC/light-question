@@ -1,7 +1,6 @@
 <script>
 import { ref } from 'vue';
 import HelloView from './views/HelloView.vue';
-import IndexViewVue from './views/IndexView.vue';
 
 export default {
   data() {
@@ -12,8 +11,7 @@ export default {
     
   },
   components: {
-    HelloView,
-    IndexViewVue
+    HelloView
   },
   mounted() {
     this.$router.push('/login/sms')
@@ -28,7 +26,6 @@ export default {
 <template>
   <HelloView v-show="visibleHello"></HelloView>
   <router-view></router-view>
-  <IndexViewVue></IndexViewVue>
 </template>
 
 <style scoped>

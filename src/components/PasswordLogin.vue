@@ -59,9 +59,20 @@ export default {
           <span class="button-color">下一步</span>
         </van-button>
       </div>
-      <van-button type="default" size="small" class="none-bg-color" @click="back">
-        <span class="button-color">短信登录</span>
-      </van-button>
+      <van-row>
+        <van-col span="8">
+          <van-button type="default" size="small" class="none-bg-color" @click="back">
+            <span class="button-color">短信登录</span>
+          </van-button>
+        </van-col>
+        <van-col span="8"></van-col>
+        <van-col span="8">
+          <van-button type="default" size="small" class="none-bg-color forget-password">
+            <span class="button-color">忘记密码？</span>
+          </van-button>
+        </van-col>
+      </van-row>
+      
     </van-form>
   </div>
 </template>
@@ -81,5 +92,8 @@ export default {
 }
 .button-color {
   color: black;
+}
+.forget-password {
+  float: right;
 }
 </style>

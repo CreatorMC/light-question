@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import LoginView from '../views/LoginView.vue';
 import SMSLogin from '../components/SMSLogin.vue';
 import PasswordLogin from '../components/PasswordLogin.vue';
+import IndexViewVue from '../views/IndexView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
           component: PasswordLogin
         },
       ]
+    },
+    {
+      path: "/index",
+      name: "index",
+      component: IndexViewVue
     },
   ],
 });

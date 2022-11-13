@@ -1,19 +1,22 @@
 <script>
 export default {
-  data() {
-    return {
-
+  methods: {
+    showIndexView() {
+      this.$router.push('/index')
+    },
+    getAssetsImages(name) {
+      return new URL(`/src/assets/images/${name}`, import.meta.url).href;
     }
-  }
+  },
 }
 </script>
 
 <template>
-  <van-button class="pass none-bg-color" type="default" size="small" round>
+  <van-button class="pass none-bg-color" type="default" size="small" round @click="showIndexView">
     跳过
   </van-button>
   <router-view></router-view>
-  <van-image class="bg" width="100%" height="100%" fit="cover" position="center" src="../static/bg.png" />
+  <van-image class="bg" width="100%" height="100%" fit="cover" position="center" :src="getAssetsImages('bg.png')" />
 </template>
 
 <style scoped>
@@ -30,6 +33,6 @@ export default {
   position: absolute;
   top: 30px;
   right: 30px;
-  z-index: 20;
+  z-index: 50;
 }
 </style>

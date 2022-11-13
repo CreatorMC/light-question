@@ -11,5 +11,5 @@ export default defineConfig({
       resolvers: [VantResolver()],
     }),
   ],
-  base:'./'
+  base:'./',
 })
