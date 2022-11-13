@@ -22,7 +22,7 @@ import 'vant/es/image-preview/style';
 
 const app = createApp(App)
 app.use(createPinia())
-app.use(router)
+// app.use(router)
 app.use(Toast)
 app.use(Dialog)
 app.use(Notify)
