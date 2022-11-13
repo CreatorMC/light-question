@@ -1,8 +1,8 @@
 <script>
 import { ref } from 'vue';
-import searchVue from './components/search.vue';
-import tabbarVue from './components/tabbar.vue';
-import swipeVue from './components/swipe.vue';
+import searchVue from '../components/search.vue';
+import tabbarVue from '../components/tabbar.vue';
+import swipeVue from '../components/swipe.vue';
 import gridVue from '../components/grid.vue';
 
 export default {
