@@ -3,16 +3,30 @@ import { ref, watch } from 'vue';
 export default {
   data() {
     return {
-      phone: ""
+      form: {
+        username: "admin",
+        password: "123",
+        phone: ""
+      }
     }
   },
   methods: {
     onClickLeft() {
       history.back();
+    },
+    onSubmit(values) {
+      console.log('submit', values);
+      this.$axios.post("/api/User/login",this.form).then(response => {
+        if (response.data != null) {
+          console.log(response.data);
+        } else {
+          //登录失败
+        }
+      })
     }
   },
   mounted() {
-    this.phone = this.$route.query.phone;
+    this.form.phone = this.$route.query.phone;
   },
   setup() {
     var value = ref('');
@@ -34,37 +48,39 @@ export default {
 
 <template>
   <div class="container">
-    <van-nav-bar
-      class="top-nav"
-      title=""
-      left-text="返回"
-      left-arrow
-      @click-left="onClickLeft"
-    />
-    <div class="title">
-      <h2>输入短信验证码</h2>
-      <span>已向您的手机{{ phone }}发送验证码</span>
-    </div>
-    <!-- 密码输入框 -->
-    <van-password-input
-      info="未注册的手机号将自动注册"
-      :value="value"
-      :focused="showKeyboard"
-      :length="6"
-      @focus="showKeyboard = true"
-    />
-    <!-- 数字键盘 -->
-    <van-number-keyboard
-      safe-area-inset-bottom
-      v-model="value"
-      :show="showKeyboard"
-      @blur="showKeyboard = false"
-    />
-    <div style="margin: 16px;">
-      <van-button round block type="primary" color="#dcdee0" native-type="submit">
-        <span class="button-color">下一步</span>
-      </van-button>
-    </div>
+    <van-form @submit="onSubmit(form)">
+      <van-nav-bar
+        class="top-nav"
+        title=""
+        left-text="返回"
+        left-arrow
+        @click-left="onClickLeft"
+      />
+      <div class="title">
+        <h2>输入短信验证码</h2>
+        <span>已向您的手机{{ form.phone }}发送验证码</span>
+      </div>
+      <!-- 密码输入框 -->
+      <van-password-input
+        info="未注册的手机号将自动注册"
+        :value="value"
+        :focused="showKeyboard"
+        :length="6"
+        @focus="showKeyboard = true"
+      />
+      <!-- 数字键盘 -->
+      <van-number-keyboard
+        safe-area-inset-bottom
+        v-model="value"
+        :show="showKeyboard"
+        @blur="showKeyboard = false"
+      />
+      <div style="margin: 16px;">
+        <van-button round block type="primary" color="#dcdee0" native-type="submit">
+          <span class="button-color">下一步</span>
+        </van-button>
+      </div>
+    </van-form>
   </div>
 </template>
 
