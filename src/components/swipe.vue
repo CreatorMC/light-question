@@ -5,9 +5,9 @@ import { Swipe, SwipeItem } from 'vant';
 export default {
   setup() {
     const images = [
-       "./banner1.jpg",
-       "./banner2.jpg",
-       "./banner3.jpg",
+      "src/assets/images/banner1.jpg",
+      "/src/assets/images/banner2.jpg",
+      "/src/assets/images/banner3.jpg",
     ];
     return { images };
   },
@@ -16,16 +16,16 @@ export default {
 </script>
 
 <template>
-    <van-swipe :autoplay="3000" lazy-render touchable="true">
-  <van-swipe-item v-for="image in images" :key="image">
-    <img class="a" :src="image" />
-  </van-swipe-item>
-</van-swipe>
+  <van-swipe :autoplay="3000" lazy-render touchable="true">
+    <van-swipe-item v-for="image in images" :key="image">
+      <img class="a" :src="image" />
+    </van-swipe-item>
+  </van-swipe>
 </template>
 
 
 <style  scoped>
-.a{
+.a {
   align-items: center;
   /* width: 375px;
   height: 220px; */
