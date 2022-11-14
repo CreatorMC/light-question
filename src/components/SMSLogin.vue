@@ -9,11 +9,16 @@ export default {
   },
   methods: {
     onSubmit(values) {
-      console.log('submit', values);
+      this.$router.push(
+        {
+          'path': '/login/vcode',
+          'query': { phone: values.phone }
+        }
+      );
     },
     showPasswordLogin() {
       this.$router.push('/login/password');
-    }
+    },
   }
 }
 </script>

@@ -3,6 +3,7 @@ import LoginView from '../views/LoginView.vue';
 import SMSLogin from '../components/SMSLogin.vue';
 import PasswordLogin from '../components/PasswordLogin.vue';
 import IndexViewVue from '../views/IndexView.vue';
+import VCodeLogin from '../components/VCodeLogin.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,6 +26,11 @@ const router = createRouter({
           path: "password",
           name: "Password",
           component: PasswordLogin
+        },
+        {
+          path: "vcode",
+          name: "vcode",
+          component: VCodeLogin
         },
       ]
     },
