@@ -13,10 +13,10 @@ export default{
 <template>
     <van-cell-group inset="true" class="a">
   <van-cell title="2021-2022 计算机文化基础 期末考试A卷" is-link="true"/>
-  <van-cell title="2021-2022 法学概论 期末考试A卷" is-link="true"/>
-  <van-cell title="2021-2022 微观经济学 期末考试A卷" is-link="true"/>
-  <van-cell title="2021-2022 新闻学基础 期末考试A卷" is-link="true"/>
-  <van-cell title="2021-2022 马克思原理 期末考试A卷" is-link="true"/>
+  <van-cell title="2021-2022 全国计算机二级考试试题" is-link="true"/>
+  <van-cell title="2019-2020 计算机导论 期中考试A卷" is-link="true"/>
+  <van-cell title="2020-2021 搜索引擎与原理 期末考试B卷" is-link="true"/>
+  <van-cell title="2021-2022 数据恢复与处理 期中考试试题" is-link="true"/>
 </van-cell-group>
 
 </template>
