@@ -4,8 +4,6 @@ export default {
   data() {
     return {
       form: {
-        username: "admin",
-        password: "123",
         phone: ""
       }
     }
@@ -15,12 +13,24 @@ export default {
       history.back();
     },
     onSubmit(values) {
-      console.log('submit', values);
-      this.$axios.post("/api/User/login",this.form).then(response => {
+      this.$axios.post("/api/User/login/code",{
+        code: this.value,
+        phone: this.form.phone
+      }).then(response => {
         if (response.data != null) {
           console.log(response.data);
+          if(response.data == 1) {
+            //redis验证码失效，需提示用户后退到上一界面，重新发送验证码
+
+          } else if(response.data == 2) {
+            //验证码输入错误
+
+          } else {
+            //成功
+            localStorage.setItem("user-info", JSON.stringify(response.data));
+          }
         } else {
-          //登录失败
+          //意外错误
         }
       })
     }

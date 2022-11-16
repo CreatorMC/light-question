@@ -9,6 +9,13 @@ export default {
   },
   methods: {
     onSubmit(values) {
+      this.$axios.post("/api/User/login",this.form).then(response => {
+        if (response.data != null) {
+          console.log(response.data);
+        } else {
+          //登录失败
+        }
+      });
       this.$router.push(
         {
           'path': '/login/vcode',
