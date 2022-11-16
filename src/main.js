@@ -36,7 +36,6 @@ axios.interceptors.request.use(
     //先从浏览器的localStorage存储中提取token值
     const info = JSON.parse(localStorage.getItem("user-info"));
     if(info == null) {
-      console.log("无保存的用户信息");
       return config;
     }
     const tokenStr = info.token
