@@ -13,9 +13,15 @@ export default{
     }
   },
 methods: {
-    onClick(e) {
-      console.log(e.currentTarget.id)
-      console.log(e.currentTarget.innerText)
+
+    onClick(targetpath,targetname) {
+      //方法1：path跳转
+       this.$router.push(targetpath)
+      ({
+        path:targetpath,
+        // name:targetname
+      })
+
     }
 }
 
@@ -24,7 +30,7 @@ methods: {
 
 <template>
     <van-cell-group inset="true" class="a">
-  <van-cell title="2021-2022 计算机文化基础 期末考试A卷" is-link="true" @click="onClick"/>
+  <van-cell title="2021-2022 计算机文化基础 期末考试A卷" is-link="true" @click="onClick('/title',Title)"/>
   <van-cell title="2021-2022 全国计算机二级考试试题" is-link="true" @click="onClick"/>
   <van-cell title="2019-2020 计算机导论 期中考试A卷" is-link="true" @click="onClick"/>
   <van-cell title="2020-2021 搜索引擎与原理 期末考试B卷" is-link="true" @click="onClick"/>
@@ -34,8 +40,8 @@ methods: {
 
 </template>
 
-<style>
-    .a{
-        text-align: left;
-    }
+<style scoped>
+.a{
+  text-align: left;
+}
 </style>

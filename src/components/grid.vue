@@ -26,6 +26,6 @@ export default {
 
 </template>
 
-<style>
+<style scoped>
 
 </style>
