@@ -16,7 +16,7 @@ export default {
 </script>
 
 <template>
-  <van-swipe :autoplay="3000" lazy-render touchable="true">
+  <van-swipe :autoplay="3000" lazy-render :touchable="true">
     <van-swipe-item v-for="image in images" :key="image">
       <img class="a" :src="image" />
     </van-swipe-item>

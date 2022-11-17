@@ -21,16 +21,32 @@ export default {
           console.log(response.data);
           if(response.data == 1) {
             //redis验证码失效，需提示用户后退到上一界面，重新发送验证码
-
+            this.$toast({
+              message: '验证码已失效，请退到上一页面，重新生成验证码',
+              position: 'bottom',
+            });
           } else if(response.data == 2) {
             //验证码输入错误
-
+            this.$toast({
+              message: '验证码输入错误',
+              position: 'bottom',
+            });
           } else {
             //成功
             localStorage.setItem("user-info", JSON.stringify(response.data));
+            this.$toast({
+              message: '登录成功',
+              position: 'bottom',
+            });
+            //进入主页
+            this.$router.push('/index');
           }
         } else {
           //意外错误
+          this.$toast({
+            message: '意外的错误，请检查网络后重试',
+            position: 'bottom',
+          });
         }
       })
     }

@@ -21,6 +21,8 @@ export default {
     this.$axios.get("/api/User/check", null).then((response) => {
       if(response.data != null && response.data != "") {
         console.log("保持登录成功");
+        //进入主页
+        this.$router.push('/index');
       } else {
         console.log("未登录，需要登录");
       }

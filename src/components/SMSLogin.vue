@@ -14,6 +14,10 @@ export default {
           console.log(response.data);
         } else {
           //登录失败
+          this.$toast({
+            message: '意外的错误，请检查网络后重试',
+            position: 'bottom',
+          });
         }
       });
       this.$router.push(
