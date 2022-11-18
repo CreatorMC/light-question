@@ -14,7 +14,7 @@ export default{
   },
 methods: {
 
-    onClick(targetpath,targetname) {
+    onClick(targetpath) {
       //方法1：path跳转
        this.$router.push(targetpath)
       ({

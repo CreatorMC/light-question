@@ -5,9 +5,9 @@ import { Swipe, SwipeItem } from 'vant';
 export default {
   setup() {
     const images = [
-      "src/assets/images/banner1.jpg",
-      "/src/assets/images/banner2.jpg",
-      "/src/assets/images/banner3.jpg",
+      new URL("/src/assets/images/banner1.jpg", import.meta.url).href,
+      new URL("/src/assets/images/banner2.jpg", import.meta.url).href,
+      new URL("/src/assets/images/banner3.jpg", import.meta.url).href,
     ];
     return { images };
   },

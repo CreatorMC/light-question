@@ -6,6 +6,7 @@ import IndexViewVue from '../views/IndexView.vue';
 import VCodeLogin from '../components/VCodeLogin.vue';
 import title from '../components/title.vue'
 import answer from '../components/answer.vue'
+import test from '../components/test.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +52,11 @@ const router = createRouter({
       path: "/answer",
       name: "Answer",
       component: answer
+    },
+    {
+      path: "/test",
+      name: "Test",
+      component: test
     },
   ],
 });
