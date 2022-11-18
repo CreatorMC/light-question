@@ -18,7 +18,7 @@ export default {
     //进入时，获取存储的用户信息，存储到全局变量中
     const store = useFileStore();
     store.user = JSON.parse(localStorage.getItem("user-info"));
-    this.$axios.get("/api/User/check", null).then((response) => {
+    this.$axios.get(this.$springbooturl + "/api/User/check", null).then((response) => {
       if(response.data != null && response.data != "") {
         console.log("保持登录成功");
         //进入主页

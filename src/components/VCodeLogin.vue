@@ -13,7 +13,7 @@ export default {
       history.back();
     },
     onSubmit(values) {
-      this.$axios.post("/api/User/login/code",{
+      this.$axios.post(this.$springbooturl + "/api/User/login/code",{
         code: this.value,
         phone: this.form.phone
       }).then(response => {

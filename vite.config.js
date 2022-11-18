@@ -12,13 +12,14 @@ export default defineConfig({
     }),
   ],
   base:'./',
-  server: {
-    proxy: {
-      '/api': {
-        target: 'http://39.98.73.138:8080/api',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
-      },
-    }
-  }
+  // server: {
+  //   proxy: {
+  //     '/api': {
+  //       target: 'https://39.98.73.138:8080/api',
+  //       secure: false,
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/api/, '')
+  //     },
+  //   }
+  // }
 })

@@ -9,7 +9,7 @@ export default {
   },
   methods: {
     onSubmit(values) {
-      this.$axios.post("/api/User/login",this.form).then(response => {
+      this.$axios.post(this.$springbooturl + "/api/User/login",this.form).then(response => {
         if (response.data != null) {
           console.log(response.data);
         } else {

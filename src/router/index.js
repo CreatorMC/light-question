@@ -55,12 +55,4 @@ const router = createRouter({
   ],
 });
 
-// router.beforeEach((to, from, next) => {
-//   if(to.path.startsWith('/login')) {
-//     //跳转到登录界面时移除本地信息
-//     localStorage.removeItem("user-info")
-//     next()
-//   }
-// });
-
 export default router;
