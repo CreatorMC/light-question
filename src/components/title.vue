@@ -16,6 +16,9 @@ export default {
     };
   },
   methods:{
+    test(){
+      this.$router.push('/test')
+    },
     start(){
         this.$router.push('/answer')
     },
@@ -38,6 +41,9 @@ export default {
 <van-button color="linear-gradient(to right, #ff6034, #ee0a24)" @click="start" class="b">
   开始答题
 </van-button>
+<van-button color="linear-gradient(to right, #ff6034, #ee0a24)" @click="test">
+  界面测试
+</van-button>
 <van-image class="bg" width="100%" height="100%" fit="cover" position="center" :src="getAssetsImages('bg.png')" />
 </template>
 
@@ -55,11 +61,5 @@ export default {
 }
 .none-bg-color {
   background: none;
-}
-.pass {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  z-index: 50;
 }
 </style>
