@@ -9,6 +9,17 @@ export default {
   },
   methods: {
     onSubmit(values) {
+      this.$axios.post("/api/User/login",this.form).then(response => {
+        if (response.data != null) {
+          console.log(response.data);
+        } else {
+          //登录失败
+          this.$toast({
+            message: '意外的错误，请检查网络后重试',
+            position: 'bottom',
+          });
+        }
+      });
       this.$router.push(
         {
           'path': '/login/vcode',

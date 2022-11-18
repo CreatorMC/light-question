@@ -30,4 +30,18 @@ app.use(ImagePreview)
 // 全局配置axios
 axios.defaults.withCredentials = true
 app.config.globalProperties.$axios = axios
+//请求拦截器
+axios.interceptors.request.use(
+  config => {
+    //先从浏览器的localStorage存储中提取token值
+    const info = JSON.parse(localStorage.getItem("user-info"));
+    if(info == null) {
+      return config;
+    }
+    const tokenStr = info.token
+    if (tokenStr) {
+      config.headers.Authorization = tokenStr
+    }
+    return config
+  })
 app.mount('#app')
