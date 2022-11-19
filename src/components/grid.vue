@@ -7,22 +7,46 @@ app.use(Grid);
 app.use(GridItem);
 
 export default {
-
+  data(){
+    return{
+      texts :[
+        "院校",
+        "咨询",
+        "自我提升",
+        "金融学",
+        "心理学",
+        "法理学",
+        "审计学",
+        "法学基础",
+        "综合测评",
+        "更多",
+      ],
+      photos:[
+      new URL("/src/assets/images/院校.png", import.meta.url).href,
+      new URL("/src/assets/images/咨询.png", import.meta.url).href,
+      new URL("/src/assets/images/自我提升.png", import.meta.url).href,
+      new URL("/src/assets/images/金融学.png", import.meta.url).href,
+      new URL("/src/assets/images/心理学.png", import.meta.url).href,
+      new URL("/src/assets/images/法理学.png", import.meta.url).href,
+      new URL("/src/assets/images/审计学.png", import.meta.url).href,
+      new URL("/src/assets/images/法学基础.png", import.meta.url).href,
+      new URL("/src/assets/images/综合测评.png", import.meta.url).href,
+      new URL("/src/assets/images/更多.png", import.meta.url).href,
+      ]
+    }
+  },
+  setup() {
+    
+  },
 }
 
 </script>
 
 <template>
-  <van-grid>
-    <van-grid-item icon="photo-o" text="院校" />
-    <van-grid-item icon="photo-o" text="咨询" />
-    <van-grid-item icon="photo-o" text="自我提升" />
-    <van-grid-item icon="photo-o" text="金融学" />
-    <van-grid-item icon="photo-o" text="心理学" />
-    <van-grid-item icon="photo-o" text="经济学" />
-    <van-grid-item icon="photo-o" text="期末突击" />
-    <van-grid-item icon="photo-o" text="综合测评" />
-  </van-grid>
+  <van-grid :column-num="5">
+  <van-grid-item v-for="(value, index) in texts" :icon="photos[index]" :text="texts[index]" />
+</van-grid>
+
 
 </template>
 
