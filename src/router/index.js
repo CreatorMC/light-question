@@ -8,6 +8,7 @@ import title from '../components/title.vue';
 import answer from '../components/answer.vue';
 import test from '../components/test.vue';
 import IndexHome from '../views/IndexHome.vue';
+import IndexBook from '../views/IndexBook.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -46,8 +47,18 @@ const router = createRouter({
       children: [
         {
           path: "",
+          name: "auto",
+          redirect: "/index/home"
+        },
+        {
+          path: "home",
           name: "Home",
           component: IndexHome
+        },
+        {
+          path: "book",
+          name: "Book",
+          component: IndexBook
         }
       ]
     },

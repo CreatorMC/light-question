@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-  <div class="size">
+  <div class="size" @touchmove.prevent>
     <van-button class="count-down z-index" type="default" size="small" round @click="visibleSelf">
       <van-count-down :time="time" format="ss s" @finish="visibleSelf" />
     </van-button>

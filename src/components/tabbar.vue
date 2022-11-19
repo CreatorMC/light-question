@@ -12,7 +12,7 @@ export default {
 
 <template>
   <van-tabbar v-model="active" route fixed>
-    <van-tabbar-item replace to="/index">
+    <van-tabbar-item replace to="/index/home">
       <span>首页</span>
       <template #icon>
         <svg t="1668251553481" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ export default {
         </svg>
       </template>
     </van-tabbar-item>
-    <van-tabbar-item>
+    <van-tabbar-item replace to="/index/book">
       <span>秘籍</span>
       <template #icon>
         <svg t="1668258145804" class="icon" viewBox="0 0 1099 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
