@@ -1,10 +1,6 @@
 <script>
 import { ref } from 'vue';
-import searchVue from '../components/search.vue';
 import tabbarVue from '../components/tabbar.vue';
-import swipeVue from '../components/swipe.vue';
-import gridVue from '../components/grid.vue';
-import TabVue from '../components/tab.vue'
 
 export default {
   data() {
@@ -13,11 +9,7 @@ export default {
     }
   },
   components: {
-    searchVue,
     tabbarVue,
-    swipeVue,
-    gridVue,
-    TabVue,
   },
   setup() {
     const active = ref(0);
@@ -27,10 +19,7 @@ export default {
 </script>
 
 <template>
-  <searchVue></searchVue>
-  <swipeVue></swipeVue>
-  <gridVue></gridVue>
-  <TabVue></TabVue>
+  <router-view></router-view>
   <tabbarVue></tabbarVue>
 </template>
 

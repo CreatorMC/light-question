@@ -4,16 +4,17 @@ import SMSLogin from '../components/SMSLogin.vue';
 import PasswordLogin from '../components/PasswordLogin.vue';
 import IndexViewVue from '../views/IndexView.vue';
 import VCodeLogin from '../components/VCodeLogin.vue';
-import title from '../components/title.vue'
-import answer from '../components/answer.vue'
-import test from '../components/test.vue'
+import title from '../components/title.vue';
+import answer from '../components/answer.vue';
+import test from '../components/test.vue';
+import IndexHome from '../views/IndexHome.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      redirect: "/home"
+      redirect: "/index/home"
     },
     {
       path: "/login",
@@ -41,7 +42,14 @@ const router = createRouter({
     {
       path: "/index",
       name: "index",
-      component: IndexViewVue
+      component: IndexViewVue,
+      children: [
+        {
+          path: "",
+          name: "Home",
+          component: IndexHome
+        }
+      ]
     },
     {
       path: "/title",

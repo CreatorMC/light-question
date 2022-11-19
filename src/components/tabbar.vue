@@ -11,8 +11,8 @@ export default {
 </script>
 
 <template>
-  <van-tabbar v-model="active">
-    <van-tabbar-item>
+  <van-tabbar v-model="active" route fixed>
+    <van-tabbar-item replace to="/index">
       <span>首页</span>
       <template #icon>
         <svg t="1668251553481" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"

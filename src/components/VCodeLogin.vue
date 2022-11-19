@@ -88,7 +88,7 @@ export default {
       </div>
       <!-- 密码输入框 -->
       <van-password-input
-        info="未注册的手机号将自动注册"
+        info="未注册的手机号将自动注册，测试验证码：123456"
         :value="value"
         :focused="showKeyboard"
         :length="6"
