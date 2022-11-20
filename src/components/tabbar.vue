@@ -26,7 +26,7 @@ export default {
         </svg>
       </template>
     </van-tabbar-item>
-    <van-tabbar-item>
+    <van-tabbar-item replace to="/index/jianghu">
       <span>江湖</span>
       <template #icon>
         <svg t="1668257812497" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ export default {
         </svg>
       </template>
     </van-tabbar-item>
-    <van-tabbar-item>
+    <van-tabbar-item replace to="/index/mine">
       <span>我的</span>
       <template #icon>
         <svg t="1668258007878" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"

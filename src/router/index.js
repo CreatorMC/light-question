@@ -9,6 +9,10 @@ import answer from '../components/answer.vue';
 import test from '../components/test.vue';
 import IndexHome from '../views/IndexHome.vue';
 import IndexBook from '../views/IndexBook.vue';
+import { isSimpleIdentifier } from "@vue/compiler-core";
+import IndexMine from '../views/IndexMine.vue'
+import IndexJianghu from '../views/IndexJianghu.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -59,7 +63,17 @@ const router = createRouter({
           path: "book",
           name: "Book",
           component: IndexBook
-        }
+        },
+        {
+          path: "mine",
+          name: "Mine",
+          component: IndexMine
+        },
+        {
+          path: "jianghu",
+          name: "Jianghu",
+          component: IndexJianghu
+        },
       ]
     },
     {
