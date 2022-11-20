@@ -1,8 +1,8 @@
 <script>
-import searchVue from '../components/search.vue';
-import TabVue from '../components/tab.vue'
-import swipeVue from '../components/swipe.vue';
-import gridVue from '../components/grid.vue';
+import searchVue from '../components/IndexSearch.vue';
+import TabVue from '../components/IndexTab.vue'
+import swipeVue from '../components/IndexSwipe.vue';
+import gridVue from '../components/IndexGrid.vue';
 export default {
   data() {
     return {

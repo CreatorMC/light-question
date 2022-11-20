@@ -4,9 +4,8 @@ import SMSLogin from '../components/SMSLogin.vue';
 import PasswordLogin from '../components/PasswordLogin.vue';
 import IndexViewVue from '../views/IndexView.vue';
 import VCodeLogin from '../components/VCodeLogin.vue';
-import title from '../components/title.vue';
-import answer from '../components/answer.vue';
-import test from '../components/test.vue';
+import IndexTitle from '../components/IndexTitle.vue'
+import IndexAnswer from '../components/IndexAnswer.vue';
 import IndexHome from '../views/IndexHome.vue';
 import IndexBook from '../views/IndexBook.vue';
 import { isSimpleIdentifier } from "@vue/compiler-core";
@@ -77,19 +76,14 @@ const router = createRouter({
       ]
     },
     {
-      path: "/title",
-      name: "Title",
-      component: title
+      path: "/Indextitle",
+      name: "IndexTitle",
+      component: IndexTitle
     },
     {
-      path: "/answer",
-      name: "Answer",
-      component: answer
-    },
-    {
-      path: "/test",
-      name: "Test",
-      component: test
+      path: "/Indexanswer",
+      name: "IndexAnswer",
+      component: IndexAnswer
     },
   ],
 });

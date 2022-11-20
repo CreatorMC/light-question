@@ -1,7 +1,6 @@
 <script>
 import { ref } from 'vue';
-import listVue from './list.vue';
-import cellVue from './cell.vue';
+import cellVue from './IndexCell.vue';
 
 
 export default {
@@ -10,7 +9,6 @@ export default {
         return { active };
     },
     components: {
-        listVue,
         cellVue
     }
 };

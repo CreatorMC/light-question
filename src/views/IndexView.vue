@@ -1,6 +1,6 @@
 <script>
 import { ref } from 'vue';
-import tabbarVue from '../components/tabbar.vue';
+import tabbarVue from '../components/Tabbar.vue';
 
 export default {
   data() {

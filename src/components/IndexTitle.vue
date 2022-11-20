@@ -16,11 +16,8 @@ export default {
     };
   },
   methods:{
-    test(){
-      this.$router.push('/test')
-    },
     start(){
-        this.$router.push('/answer')
+        this.$router.push('/Indexanswer')
     },
     getAssetsImages(name) {
       return new URL(`/src/assets/images/${name}`, import.meta.url).href;
@@ -40,9 +37,6 @@ export default {
 />
 <van-button color="linear-gradient(to right, #ff6034, #ee0a24)" @click="start" class="b">
   开始答题
-</van-button>
-<van-button color="linear-gradient(to right, #ff6034, #ee0a24)" @click="test">
-  界面测试
 </van-button>
 <van-image class="bg" width="100%" height="100%" fit="cover" position="center" :src="getAssetsImages('bg.png')" />
 </template>
