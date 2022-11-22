@@ -60,6 +60,13 @@ axios.interceptors.response.use(
     }
   },
   err => {
+    if(err.response == null) {
+      app.config.globalProperties.$toast({
+        message: '网络异常，请检查自己的网络',
+        position: 'bottom',
+      });
+      return Promise.reject(err)
+    }
     if (err.response.status) { //服务器状态码的异常
       switch (err.response.status) {
         // 403 token过期
@@ -99,7 +106,6 @@ axios.interceptors.response.use(
 )
 
 
-// app.config.globalProperties.$springbooturl = "https://39.98.73.138:8080"
-app.config.globalProperties.$springbooturl = ""
+app.config.globalProperties.$springbooturl = "https://39.98.73.138:8080"
 app.config.globalProperties.$domain = "https://39.98.73.138"
 app.mount('#app')
