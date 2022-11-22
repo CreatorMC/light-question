@@ -46,4 +46,5 @@ axios.interceptors.request.use(
   })
 // app.config.globalProperties.$springbooturl = "https://39.98.73.138:8080"
 app.config.globalProperties.$springbooturl = ""
+app.config.globalProperties.$domain = "https://39.98.73.138"
 app.mount('#app')

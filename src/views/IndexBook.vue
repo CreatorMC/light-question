@@ -5,16 +5,9 @@ export default {
       loading: false,
       finished: true,
       refreshing: false,
-      list: [
-        {
-          title: "计算机文化基础",
-          label: "2020 12 28 模拟题第1套",
-          icon: "https://39.98.73.138/IconQuestionBank/default_0.png"
-        }
-      ],
+      list: [],
       themeVars: {
         cellLineHeight: "3em"
-        // navBarBackgroundColor: "#89ffb8"
       },
     }
   },
@@ -29,15 +22,19 @@ export default {
     },
     onLoad() {
       console.log("加载");
-      setTimeout(() => {
-        if (this.refreshing) {
-          this.list = [];
-          this.refreshing = false;
+      const id = "0101";
+      this.$axios.get(this.$springbooturl + `/api/Data/getQuestionBank/${id}`).then((response) => {
+        if(response.data) {
+          this.list = response.data;
         }
+        this.refreshing = false;
         this.loading = false;
         this.finished = true;
-      }, 1000);
+      });
     }
+  },
+  mounted() {
+    this.onRefresh();
   }
 }
 </script>
@@ -56,7 +53,7 @@ export default {
           @load="onLoad"
         >
           <van-cell-group inset v-for="item in list" :key="item" class="box-margin box-shadow" >
-            <van-cell icon-prefix="question-left-icon" :icon="item.icon" :title="item.title" value="" :label="item.label" :is-link="true" :center="true" />
+            <van-cell icon-prefix="question-left-icon" :icon="this.$domain + item.icon" :title="item.title" value="" :label="item.label" :is-link="true" :center="true" />
           </van-cell-group>
         </van-list>
       </van-pull-refresh>
@@ -66,7 +63,7 @@ export default {
 
 <style scoped>
 .box-margin {
-  margin: 20px;
+  margin-top: 20px;
 }
 .line-bottom {
   border-bottom: 3px solid #cccccc;
@@ -88,5 +85,8 @@ export default {
   width: 4em !important;
   height: 4em !important;
   border-radius: 10px;
+}
+.box-margin div .van-cell__title {
+  flex: auto !important;
 }
 </style>
