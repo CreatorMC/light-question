@@ -31,6 +31,15 @@ export default {
         this.loading = false;
         this.finished = true;
       });
+    },
+    onClick(item) {
+      console.log(item);
+      this.$router.push(
+        {
+          'path': '/question',
+          'query': item
+        }
+      );
     }
   },
   mounted() {
@@ -53,7 +62,7 @@ export default {
           @load="onLoad"
         >
           <van-cell-group inset v-for="item in list" :key="item" class="box-margin box-shadow" >
-            <van-cell icon-prefix="question-left-icon" :icon="this.$domain + item.icon" :title="item.title" value="" :label="item.label" :is-link="true" :center="true" />
+            <van-cell icon-prefix="question-left-icon" :icon="this.$domain + item.icon" :title="item.title" value="" :label="item.label" :is-link="true" :center="true" @click="onClick(item)" />
           </van-cell-group>
         </van-list>
       </van-pull-refresh>
@@ -64,9 +73,6 @@ export default {
 <style scoped>
 .box-margin {
   margin-top: 20px;
-}
-.line-bottom {
-  border-bottom: 3px solid #cccccc;
 }
 .box-shadow {
   box-shadow: 0px 3px #cccccc;

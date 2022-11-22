@@ -19,8 +19,10 @@ export default {
 </script>
 
 <template>
-  <router-view></router-view>
-  <tabbarVue></tabbarVue>
+  <div>
+    <router-view></router-view>
+    <tabbarVue></tabbarVue>
+  </div>
 </template>
 
 <style scoped>

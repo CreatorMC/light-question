@@ -19,10 +19,12 @@ export default {
 </script>
 
 <template>
-  <searchVue></searchVue>
-  <swipeVue></swipeVue>
-  <gridVue></gridVue>
-  <TabVue></TabVue>
+  <div>
+    <searchVue></searchVue>
+    <swipeVue></swipeVue>
+    <gridVue></gridVue>
+    <TabVue></TabVue>
+  </div>
 </template>
 
 <style scoped>

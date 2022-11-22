@@ -87,7 +87,7 @@ export default {
       />
       <div class="title">
         <h2>输入短信验证码</h2>
-        <span>已向您的手机{{ form.phone }}发送验证码</span>
+        <span>{{ form.phone }}请输入测试验证码：123456</span>
       </div>
       <!-- 密码输入框 -->
       <van-password-input

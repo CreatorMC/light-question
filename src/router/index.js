@@ -4,12 +4,11 @@ import SMSLogin from '../components/SMSLogin.vue';
 import PasswordLogin from '../components/PasswordLogin.vue';
 import IndexViewVue from '../views/IndexView.vue';
 import VCodeLogin from '../components/VCodeLogin.vue';
-import IndexTitle from '../components/IndexTitle.vue'
-import IndexAnswer from '../components/IndexAnswer.vue';
 import IndexHome from '../views/IndexHome.vue';
 import IndexBook from '../views/IndexBook.vue';
-import IndexMine from '../views/IndexMine.vue'
-import IndexJianghu from '../views/IndexJianghu.vue'
+import IndexMine from '../views/IndexMine.vue';
+import IndexJianghu from '../views/IndexJianghu.vue';
+import QuestionView from '../views/QuestionView.vue';
 
 
 const router = createRouter({
@@ -17,27 +16,42 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      redirect: "/index/home"
+      redirect: "/index/home",
+      meta: {
+        index: 1
+      }
     },
     {
       path: "/login",
       name: "login",
       component: LoginView,
+      meta: {
+        index: 1
+      },
       children: [
         {
           path: "sms",
           name: "SMS",
-          component: SMSLogin
+          component: SMSLogin,
+          meta: {
+            index: 1
+          }
         },
         {
           path: "password",
           name: "Password",
-          component: PasswordLogin
+          component: PasswordLogin,
+          meta: {
+            index: 1
+          }
         },
         {
           path: "vcode",
           name: "vcode",
-          component: VCodeLogin
+          component: VCodeLogin,
+          meta: {
+            index: 1
+          }
         },
         
       ]
@@ -45,6 +59,9 @@ const router = createRouter({
     {
       path: "/index",
       name: "index",
+      meta: {
+        index: 1
+      },
       component: IndexViewVue,
       children: [
         {
@@ -55,34 +72,44 @@ const router = createRouter({
         {
           path: "home",
           name: "Home",
-          component: IndexHome
+          component: IndexHome,
+          meta: {
+            index: 1
+          }
         },
         {
           path: "book",
           name: "Book",
-          component: IndexBook
+          component: IndexBook,
+          meta: {
+            index: 1
+          }
         },
         {
           path: "mine",
           name: "Mine",
-          component: IndexMine
+          component: IndexMine,
+          meta: {
+            index: 1
+          }
         },
         {
           path: "jianghu",
           name: "Jianghu",
-          component: IndexJianghu
+          component: IndexJianghu,
+          meta: {
+            index: 1
+          }
         },
       ]
     },
     {
-      path: "/Indextitle",
-      name: "IndexTitle",
-      component: IndexTitle
-    },
-    {
-      path: "/Indexanswer",
-      name: "IndexAnswer",
-      component: IndexAnswer
+      path: "/question",
+      name: "Question",
+      component: QuestionView,
+      meta: {
+        index: 2
+      }
     },
   ],
 });

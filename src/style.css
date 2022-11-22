@@ -3,3 +3,8 @@ body {
   padding: 0px;
   background: #f7f8fa;
 }
+
+/*底部的线*/
+.line-bottom {
+  border-bottom: 3px solid #cccccc;
+}

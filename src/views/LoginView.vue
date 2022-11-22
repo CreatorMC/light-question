@@ -12,11 +12,13 @@ export default {
 </script>
 
 <template>
-  <van-button class="pass none-bg-color" type="default" size="small" round @click="showIndexView">
-    跳过
-  </van-button>
-  <router-view></router-view>
-  <van-image class="bg" width="100%" height="100%" fit="cover" position="center" :src="getAssetsImages('bg.png')" />
+  <div>
+    <van-button class="pass none-bg-color" type="default" size="small" round @click="showIndexView">
+      跳过
+    </van-button>
+    <router-view></router-view>
+    <van-image class="bg" width="100%" height="100%" fit="cover" position="center" :src="getAssetsImages('bg.png')" />
+  </div>
 </template>
 
 <style scoped>
