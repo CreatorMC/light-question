@@ -8,7 +8,6 @@ import IndexTitle from '../components/IndexTitle.vue'
 import IndexAnswer from '../components/IndexAnswer.vue';
 import IndexHome from '../views/IndexHome.vue';
 import IndexBook from '../views/IndexBook.vue';
-import { isSimpleIdentifier } from "@vue/compiler-core";
 import IndexMine from '../views/IndexMine.vue'
 import IndexJianghu from '../views/IndexJianghu.vue'
 
