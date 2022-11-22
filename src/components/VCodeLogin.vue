@@ -1,5 +1,6 @@
 <script>
 import { ref, watch } from 'vue';
+import { useFileStore } from '../../stores/file';
 export default {
   data() {
     return {
@@ -33,7 +34,9 @@ export default {
             });
           } else {
             //成功
-            localStorage.setItem("user-info", JSON.stringify(response.data));
+            const store = useFileStore();
+            store.user = JSON.stringify(response.data);
+            localStorage.setItem("user-info", store.user);
             this.$toast({
               message: '登录成功',
               position: 'bottom',
