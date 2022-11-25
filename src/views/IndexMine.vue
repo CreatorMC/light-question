@@ -46,9 +46,6 @@ export default{
 </div>
 </div>
 
-<!-- <van-config-provider theme="dark"><van-switch v-model="checked" />
-</van-config-provider> -->
-
 
 <mine-grid></mine-grid>
 
@@ -83,9 +80,4 @@ export default{
   bottom: 188px;
   left: 10px;
 }
-.van-theme-dark body {
-  text-color: #f5f5f5;
-  background-color: black;
-}
-
 </style>
