@@ -3,35 +3,27 @@ export default {
   data() {
     return {
       item: {},
-      questions: []
+      questions: [],
+      score: 0,       //获得的分数
+      yesCount: 0     //答对的题数
     }
   },
   methods: {
-    onClickLeft() {
-      history.back();
-    },
     getAssetsImages(name) {
       return new URL(`/src/assets/images/${name}`, import.meta.url).href;
     },
-    enter() {
-      this.$router.push(
-        {
-          'path': '/questionAnswer',
-          'query': {
-            item: JSON.stringify(this.item),
-            questions: JSON.stringify(this.questions)
-          }
-        }
-      );
+    onClickLeft() {
+      this.$router.push("/index/book");
+    },
+    lookAnswer() {
+
     }
   },
   mounted() {
-    this.item = this.$route.query;
-    this.$axios.get(this.$springbooturl + `/api/Data/getQuestion/${this.item.tablename}`).then((response) => {
-      if(response.data) {
-        this.questions = response.data;
-      }
-    });
+    this.item = JSON.parse(this.$route.query.item);
+    this.questions = JSON.parse(this.$route.query.questions);
+    this.score = JSON.parse(this.$route.query.score);
+    this.yesCount = JSON.parse(this.$route.query.yesCount);
   }
 }
 </script>
@@ -62,9 +54,17 @@ export default {
         </van-col>
       </van-row>
       <van-row>
+        <van-col :span="12">
+          <div class="text-padding">答对题数：{{ yesCount }}</div>
+        </van-col>
+        <van-col :span="12">
+          <div class="text-padding">分数：{{ score }}</div>
+        </van-col>
+      </van-row>
+      <van-row>
         <van-col :span="24" class="style-button">
-          <van-button class="" color="linear-gradient(to right, #ff6034, #ee0a24)" @click="enter">
-            开始答题
+          <van-button class="" color="linear-gradient(to right, #ff6034, #ee0a24)" @click="lookAnswer">
+            查看答案
           </van-button>
         </van-col>
       </van-row>

@@ -9,6 +9,8 @@ import IndexBook from '../views/IndexBook.vue';
 import IndexMine from '../views/IndexMine.vue';
 import IndexJianghu from '../views/IndexJianghu.vue';
 import QuestionView from '../views/QuestionView.vue';
+import QuestionAnswerView from '../views/QuestionAnswerView.vue';
+import QuestionFinishView from '../views/QuestionFinishView.vue';
 
 
 const router = createRouter({
@@ -107,6 +109,22 @@ const router = createRouter({
       path: "/question",
       name: "Question",
       component: QuestionView,
+      meta: {
+        index: 2
+      }
+    },
+    {
+      path: "/questionAnswer",
+      name: "QuestionAnswer",
+      component: QuestionAnswerView,
+      meta: {
+        index: 2
+      }
+    },
+    {
+      path: "/questionFinish",
+      name: "QuestionFinish",
+      component: QuestionFinishView,
       meta: {
         index: 2
       }
