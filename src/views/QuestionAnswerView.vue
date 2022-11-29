@@ -4,11 +4,16 @@ import { Dialog } from 'vant';
 export default {
   data() {
     return {
-      show: false,    //是否显示顶部弹出层
+      themeVars: {
+        radioDisabledLabelColor: "#323233"
+      },
+      showAnswer: false,  //是否显示答案
+      rightText: "交卷",
+      show: false,        //是否显示顶部弹出层
       item: {},
       questions: [],
       index: 1,
-      answers: []     //存用户选择的答案的数组
+      answers: []         //存用户选择的答案的数组
     }
   },
   methods: {
@@ -16,6 +21,10 @@ export default {
       this.show = true;
     },
     onClickRight() {
+      if(this.showAnswer) {
+        history.back();
+        return;
+      }
       var isFinish = true;
       for(let i = 0; i < this.answers.length; i++) {
         if(this.answers[i] == "") {
@@ -30,15 +39,23 @@ export default {
         })
         .then(() => {
           // on confirm
-          console.log("确认");
           this.submit();
         })
         .catch(() => {
           // on cancel
-          console.log("取消");
         });
       } else {
-        this.submit();
+        Dialog.confirm({
+          title: '警告',
+          message: '您确定要交卷吗？',
+        })
+        .then(() => {
+          // on confirm
+          this.submit();
+        })
+        .catch(() => {
+          // on cancel
+        });
       }
     },
     submit() {
@@ -57,7 +74,8 @@ export default {
             item: JSON.stringify(this.item),
             questions: JSON.stringify(this.questions),
             score: JSON.stringify(score),
-            yesCount: JSON.stringify(yesCount)
+            yesCount: JSON.stringify(yesCount),
+            answers: JSON.stringify(this.answers)
           }
         }
       );
@@ -69,81 +87,106 @@ export default {
   mounted() {
     this.item = JSON.parse(this.$route.query.item);
     this.questions = JSON.parse(this.$route.query.questions);
-    for(let i = 0; i < this.questions.length; i++) {
-      this.answers.push("");
+    if (this.$route.query.answers) {
+      //显示答案
+      this.answers = JSON.parse(this.$route.query.answers);
+      this.showAnswer = true;
+      this.rightText = "关闭"
+    } else {
+      for(let i = 0; i < this.questions.length; i++) {
+        this.answers.push("");
+      }
     }
   }
 }
 </script>
 
 <template>
-  <div class="fix">
-    <van-popup v-model:show="show" position="top" :style="{ height: '30%' }" round>
-      <div class="container-top">
-        <div 
-          v-for="(value, i) in questions"
-          :class="'top-icon' + (answers[i] == '' ? '' : ' top-icon-do') + (i+1 == index ? ' top-icon-now' : '')"
-          @click="selectQuestion(i)"
-        >
-          {{ value.number }}
+  <van-config-provider :theme-vars="themeVars">
+    <div class="fix">
+      <van-popup v-model:show="show" position="top" :style="{ height: '30%' }" round>
+        <div class="container-top">
+          <div 
+            v-for="(value, i) in questions"
+            :class="'top-icon' + (answers[i] == '' ? '' : ' top-icon-do') + (showAnswer && answers[i] == questions[i].answer ? ' top-icon-yes' : '') +(i+1 == index ? ' top-icon-now' : '')"
+            @click="selectQuestion(i)"
+          >
+            {{ value.number }}
+          </div>
         </div>
-      </div>
-    </van-popup>
-    <van-nav-bar
-      :title="item.title"
-      :fixed="true"
-      left-text="选题"
-      right-text="交卷"
-      class="line-bottom"
-      :z-index="100"
-      @click-left="onClickLeft"
-      @click-right="onClickRight"
-    />
-    <div class="container" v-if="!!questions[index - 1]">
-      <p>{{ questions[index - 1].number + "." + questions[index - 1].topic }}</p>
-      <van-form>
-        <van-field name="radio">
-          <template #input>
-            <van-radio-group v-model="answers[index - 1]" style="width: 100%;">
-              <van-radio class="option-padding" name="A">
-                {{ questions[index - 1].optionA }}
-                <template #icon="props">
-                  <div :class="'radio-icon' + (props.checked ? ' radio-icon-checked' : '')">A</div>
-                </template>
-              </van-radio>
-              <van-radio class="option-padding" name="B">
-                {{ questions[index - 1].optionB }}
-                <template #icon="props">
-                  <div :class="'radio-icon' + (props.checked ? ' radio-icon-checked' : '')">B</div>
-                </template>
-              </van-radio>
-              <van-radio class="option-padding" name="C">
-                {{ questions[index - 1].optionC }}
-                <template #icon="props">
-                  <div :class="'radio-icon' + (props.checked ? ' radio-icon-checked' : '')">C</div>
-                </template>
-              </van-radio>
-              <van-radio class="option-padding" name="D">
-                {{ questions[index - 1].optionD }}
-                <template #icon="props">
-                  <div :class="'radio-icon' + (props.checked ? ' radio-icon-checked' : '')">D</div>
-                </template>
-              </van-radio>
-            </van-radio-group>
+      </van-popup>
+      <van-nav-bar
+        :title="item.title"
+        :fixed="true"
+        left-text="选题"
+        :right-text="rightText"
+        class="line-bottom"
+        :z-index="100"
+        @click-left="onClickLeft"
+        @click-right="onClickRight"
+      />
+      <div class="container" v-if="!!questions[index - 1]">
+        <p>{{ questions[index - 1].number + "." + questions[index - 1].topic }}</p>
+        <van-form>
+          <van-field name="radio">
+            <template #input>
+              <van-radio-group v-model="answers[index - 1]" style="width: 100%;" :disabled="showAnswer">
+                <van-radio class="option-padding" name="A">
+                  {{ questions[index - 1].optionA }}
+                  <template #icon="props">
+                    <div :class="'radio-icon' + (props.checked ? ' radio-icon-checked' : '')">A</div>
+                  </template>
+                </van-radio>
+                <van-radio class="option-padding" name="B">
+                  {{ questions[index - 1].optionB }}
+                  <template #icon="props">
+                    <div :class="'radio-icon' + (props.checked ? ' radio-icon-checked' : '')">B</div>
+                  </template>
+                </van-radio>
+                <van-radio class="option-padding" name="C">
+                  {{ questions[index - 1].optionC }}
+                  <template #icon="props">
+                    <div :class="'radio-icon' + (props.checked ? ' radio-icon-checked' : '')">C</div>
+                  </template>
+                </van-radio>
+                <van-radio class="option-padding" name="D">
+                  {{ questions[index - 1].optionD }}
+                  <template #icon="props">
+                    <div :class="'radio-icon' + (props.checked ? ' radio-icon-checked' : '')">D</div>
+                  </template>
+                </van-radio>
+              </van-radio-group>
+            </template>
+          </van-field>
+        </van-form>
+        <van-cell label="答案解析：无" v-show="showAnswer" center>
+          <template #title>
+            <span>
+              正确答案：
+              <span class="custom-title">
+                {{ questions[index - 1].answer }}
+              </span>
+            </span>
           </template>
-        </van-field>
-      </van-form>
+          <template #right-icon>
+            <van-icon 
+              :name="answers[index - 1] == questions[index - 1].answer ? 'checked' : 'clear'" 
+              :class="answers[index - 1] == questions[index - 1].answer ? 'right-icon-yes' : 'right-icon-no'" 
+            />
+          </template>
+        </van-cell>
+      </div>
+      <van-pagination
+        class="fix-bottom"
+        v-model="index"
+        :page-count="questions.length"
+        :show-page-size="3"
+        prev-text="上一题"
+        next-text="下一题"
+        force-ellipses
+      />
     </div>
-    <van-pagination
-      class="fix-bottom"
-      v-model="index"
-      :page-count="questions.length"
-      :show-page-size="3"
-      prev-text="上一题"
-      next-text="下一题"
-      force-ellipses
-    />
-  </div>
+  </van-config-provider>
 </template>
 
 <style scoped>
@@ -213,9 +256,26 @@ export default {
   border-color: rgb(238, 10, 36);
   background-color: rgb(238, 10, 36);
 }
+.top-icon-yes {
+  color: #ffffff;
+  border-color: #07c160;
+  background-color: #07c160;
+}
 .top-icon-now {
   color: #ffffff;
   border-color: #1989fa;
   background-color: #1989fa;
+}
+.custom-title {
+  color: #ff0000;
+  font-weight: bold;
+}
+.right-icon-yes {
+  font-size: 2em;
+  color: #07c160;
+}
+.right-icon-no {
+  font-size: 2em;
+  color: #ee0a24;
 }
 </style>

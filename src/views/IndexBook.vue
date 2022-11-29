@@ -21,7 +21,6 @@ export default {
       this.onLoad();
     },
     onLoad() {
-      console.log("加载");
       const id = "0101";
       this.$axios.get(this.$springbooturl + `/api/Data/getQuestionBank/${id}`).then((response) => {
         if(response.data) {
@@ -33,7 +32,6 @@ export default {
       });
     },
     onClick(item) {
-      console.log(item);
       this.$router.push(
         {
           'path': '/question',

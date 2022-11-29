@@ -4,6 +4,7 @@ export default {
     return {
       item: {},
       questions: [],
+      answers: [],
       score: 0,       //获得的分数
       yesCount: 0     //答对的题数
     }
@@ -16,7 +17,16 @@ export default {
       this.$router.push("/index/book");
     },
     lookAnswer() {
-
+      this.$router.push(
+        {
+          'path': '/questionAnswer',
+          'query': {
+            item: JSON.stringify(this.item),
+            questions: JSON.stringify(this.questions),
+            answers: JSON.stringify(this.answers)
+          }
+        }
+      );
     }
   },
   mounted() {
@@ -24,6 +34,7 @@ export default {
     this.questions = JSON.parse(this.$route.query.questions);
     this.score = JSON.parse(this.$route.query.score);
     this.yesCount = JSON.parse(this.$route.query.yesCount);
+    this.answers = JSON.parse(this.$route.query.answers);
   }
 }
 </script>
