@@ -126,7 +126,7 @@ export default {
         @click-right="onClickRight"
       />
       <div class="container" v-if="!!questions[index - 1]">
-        <p>{{ questions[index - 1].number + "." + questions[index - 1].topic }}</p>
+        <p v-html="this.praseMARK(questions[index - 1].number + '.'+ questions[index - 1].topic)"></p>
         <van-form>
           <van-field name="radio">
             <template #input>
@@ -196,9 +196,10 @@ export default {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  border-radius: 30px;
+  height: calc(100vh - 56px - var(--van-pagination-height));
   background: #ffffffa2;
   z-index: 1;
+  overflow-y: scroll;
 }
 .fix {
   position: fixed;

@@ -4,6 +4,7 @@ import './style.css'
 import App from './App.vue'
 import router from "./router"
 import axios from "axios"
+import globalMixin from './globle'
 // Toast
 import { Toast } from 'vant';
 import 'vant/es/toast/style';
@@ -21,6 +22,7 @@ import { ImagePreview } from 'vant';
 import 'vant/es/image-preview/style';
 
 const app = createApp(App)
+app.mixin(globalMixin)
 app.use(createPinia())
 app.use(router)
 app.use(Toast)
