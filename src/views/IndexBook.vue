@@ -1,5 +1,6 @@
 <script>
 export default {
+  name: "Book",
   data() {
     return {
       loading: false,
@@ -23,6 +24,7 @@ export default {
     onLoad() {
       const id = "0101";
       this.$axios.get(this.$springbooturl + `/api/Data/getQuestionBank/${id}`).then((response) => {
+        console.log("发送请求");
         if(response.data) {
           this.list = response.data;
         }

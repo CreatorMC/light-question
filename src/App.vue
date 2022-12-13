@@ -59,7 +59,9 @@ export default {
   <HelloView v-show="visibleHello"></HelloView>
   <router-view v-slot="{ Component }">
     <transition :enter-active-class="enterClass" :leave-active-class="leaveClass">
-      <component :is="Component" />
+      <KeepAlive include="index">
+        <component :is="Component" />
+      </KeepAlive>
     </transition>
   </router-view>
   <!-- 禁止页面缩放 -->

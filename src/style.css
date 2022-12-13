@@ -2,6 +2,8 @@ body {
   margin: 0px;
   padding: 0px;
   background: #f7f8fa;
+  /* animate.css动画的播放时间 */
+  --animate-duration: 0.5s
 }
 
 /*底部的线*/

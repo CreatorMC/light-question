@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import tabbarVue from '../components/Tabbar.vue';
 
 export default {
+  name: "index",
   data() {
     return {
       visibleHello: true
@@ -20,7 +21,11 @@ export default {
 
 <template>
   <div>
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <KeepAlive include="Book">
+        <component :is="Component" />
+      </KeepAlive>
+    </router-view>
     <tabbarVue></tabbarVue>
   </div>
 </template>
