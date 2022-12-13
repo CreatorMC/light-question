@@ -28,7 +28,7 @@ export default{
 </script>
 
 <template>
-
+<div>
 <div class="cover">
   <van-icon :name="setting" class="set" size="25px"/>
   <van-icon :name="saomiao" class="saomiao" size="20px"/>
@@ -48,7 +48,7 @@ export default{
 
 
 <mine-grid></mine-grid>
-
+</div>
 </template>
 
 <style scoped>

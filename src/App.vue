@@ -49,6 +49,9 @@ export default {
       } else if(to.meta.index < from.meta.index) {
         this.enterClass = 'animate__animated animate__fadeIn'
         this.leaveClass = 'animate__animated animate__slideOutRight'
+      } else {
+        this.enterClass = ""
+        this.leaveClass = ""
       }
     }
   }
