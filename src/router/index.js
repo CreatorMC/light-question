@@ -118,7 +118,7 @@ const router = createRouter({
       name: "QuestionAnswer",
       component: QuestionAnswerView,
       meta: {
-        index: 2
+        index: 3
       }
     },
     {
@@ -126,7 +126,7 @@ const router = createRouter({
       name: "QuestionFinish",
       component: QuestionFinishView,
       meta: {
-        index: 2
+        index: 4
       }
     },
   ],
