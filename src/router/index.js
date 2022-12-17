@@ -11,7 +11,8 @@ import IndexJianghu from '../views/IndexJianghu.vue';
 import QuestionView from '../views/QuestionView.vue';
 import QuestionAnswerView from '../views/QuestionAnswerView.vue';
 import QuestionFinishView from '../views/QuestionFinishView.vue';
-
+import MineFeedbackAndHelp from '../views/MineFeedbackAndHelp.vue';
+import MineFeedback from '../views/MineFeedback.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -127,6 +128,22 @@ const router = createRouter({
       component: QuestionFinishView,
       meta: {
         index: 4
+      }
+    },
+    {
+      path: "/mineFeedbackAndHelp",
+      name: "MineFeedbackAndHelp",
+      component: MineFeedbackAndHelp,
+      meta: {
+        index: 2
+      }
+    },
+    {
+      path: "/MineFeedback",
+      name: "MineFeedback",
+      component: MineFeedback,
+      meta: {
+        index: 3
       }
     },
   ],
