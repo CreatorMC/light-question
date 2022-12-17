@@ -6,12 +6,15 @@ export default {
             onClickLeft,
         };
     },
+    methods:{
+
+    }
 };
 </script>
 
 <template>
     <div>
-        <van-nav-bar title="意见反馈" left-text="返回" right-text="提交" left-arrow @click-left="onClickLeft" />
+        <van-nav-bar title="意见反馈" left-text="返回" right-text="提交" left-arrow @click-left="onClickLeft" @click-right=""/>
 
         <van-cell-group inset>
             <van-field v-model="message" rows="2" autosize label="意见" type="textarea" maxlength="255"
@@ -19,7 +22,7 @@ export default {
         </van-cell-group>
 
         <van-cell-group inset>
-            <van-field v-model="value" rows="2" autosize label="联系方式" label-align="top" type="textarea"
+            <van-field v-model="value" rows="2" autosize label="联系方式" label-align="top" type="textarea" maxlength="30"
                 placeholder="请输入手机号或QQ号，我们会在必要时和您联系" show-word-limit />
         </van-cell-group>
     </div>
