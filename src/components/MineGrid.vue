@@ -1,10 +1,4 @@
 <script>
-import { createApp } from 'vue';
-import { Grid, GridItem } from 'vant';
-
-const app = createApp();
-app.use(Grid);
-app.use(GridItem);
 
 export default {
   data() {
@@ -39,7 +33,7 @@ export default {
 
       switch(index){
         case 0:
-        this.$router.push({name:'MineFeedbackAndHelp'})
+        // this.$router.push({name:'MineFeedbackAndHelp'})
 
         // case 1:
         // this.$router.push({name:''})
@@ -59,8 +53,8 @@ export default {
         // case 6:
         // this.$router.push({name:''})
         
-        // case 7:
-        // this.$router.push({name:''})
+        case 7:
+        this.$router.push({name:'MineFeedbackAndHelp'})
         
       }
 
