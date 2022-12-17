@@ -35,8 +35,8 @@ export default {
           } else {
             //成功
             const store = useFileStore();
-            store.user = JSON.stringify(response.data);
-            localStorage.setItem("user-info", store.user);
+            store.user = response.data;
+            localStorage.setItem("user-info", JSON.stringify(response.data));
             this.$toast({
               message: '登录成功',
               position: 'bottom',
