@@ -1,7 +1,7 @@
 <script>
 import { ref } from 'vue';
 import tabbarVue from '../components/Tabbar.vue';
-import animate from "animate.css";
+import "animate.css";
 
 export default {
   name: "index",

@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { useFileStore } from '../stores/file';
 import HelloView from './views/HelloView.vue';
-import animate from "animate.css";
+import "animate.css";
 
 export default {
   data() {
