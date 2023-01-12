@@ -23,6 +23,7 @@ export default {
         new URL("/src/assets/images/mistakes.png", import.meta.url).href,
         new URL("/src/assets/images/help.png", import.meta.url).href,
       ],
+      gridtextlist: []
     }
   },
   setup() {

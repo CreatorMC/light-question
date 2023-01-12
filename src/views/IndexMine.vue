@@ -1,6 +1,7 @@
 <script>
 import MineGrid from '../components/MineGrid.vue'
 import { ref } from 'vue';
+import { useFileStore } from '../../stores/file';
 export default {
   data() {
     return {
@@ -8,7 +9,7 @@ export default {
       saomiao: new URL("/src/assets/images/saomiao.png", import.meta.url).href,
       night: new URL("/src/assets/images/night.png", import.meta.url).href,
       message: new URL("/src/assets/images/message.png", import.meta.url).href,
-
+      userName: "点击登录"
     }
   },
   setup() {
@@ -22,6 +23,10 @@ export default {
   },
   components: {
     MineGrid
+  },
+  mounted() {
+    const store = useFileStore();
+    this.userName = store.user.username;
   }
 
 }
@@ -36,7 +41,7 @@ export default {
       <van-icon :name="message" class="message" size="25px" />
       <van-image round fit="cover" width="100px" height="100px" src="https://img.yzcdn.cn/vant/cat.jpeg" />
       <div>
-        点击登录
+        {{ userName }}
       </div>
     </div>
     <mine-grid></mine-grid>

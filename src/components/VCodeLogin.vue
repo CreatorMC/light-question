@@ -19,7 +19,6 @@ export default {
         phone: this.form.phone
       }).then(response => {
         if (response.data != null) {
-          console.log(response.data);
           if(response.data == 1) {
             //redis验证码失效，需提示用户后退到上一界面，重新发送验证码
             this.$toast({
