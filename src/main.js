@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from "./router"
 import axios from "axios"
 import globalMixin from './globle'
+import plusExtends from './plus'
 // Toast
 import { Toast } from 'vant';
 import 'vant/es/toast/style';
@@ -108,7 +109,9 @@ axios.interceptors.response.use(
 )
 
 
-// app.config.globalProperties.$springbooturl = "https://39.98.73.138:8080"
-app.config.globalProperties.$springbooturl = ""
+app.config.globalProperties.$springbooturl = "https://39.98.73.138:8080"
+// app.config.globalProperties.$springbooturl = ""
 app.config.globalProperties.$domain = "https://39.98.73.138"
+//挂接H5+API
+app.config.globalProperties.$plus = plusExtends
 app.mount('#app')

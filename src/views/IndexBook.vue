@@ -50,7 +50,7 @@ export default {
 <template>
   <div>
     <van-config-provider :theme-vars="themeVars">
-      <van-nav-bar title="秘籍" :fixed="true" :placeholder="true" class="line-bottom" />
+      <van-nav-bar title="秘籍" :fixed="true" :placeholder="true"/>
       <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
         <van-list
           class="container-height"

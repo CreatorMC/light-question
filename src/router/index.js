@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LoginView from '../views/LoginView.vue';
-import SMSLogin from '../components/SMSLogin.vue';
-import PasswordLogin from '../components/PasswordLogin.vue';
+import LoginSMS from '../components/LoginSMS.vue';
+import LoginPassword from '../components/LoginPassword.vue';
 import IndexViewVue from '../views/IndexView.vue';
-import VCodeLogin from '../components/VCodeLogin.vue';
+import LoginVCode from '../components/LoginVCode.vue';
 import IndexHome from '../views/IndexHome.vue';
 import IndexBook from '../views/IndexBook.vue';
 import IndexMine from '../views/IndexMine.vue';
@@ -35,7 +35,7 @@ const router = createRouter({
         {
           path: "sms",
           name: "SMS",
-          component: SMSLogin,
+          component: LoginSMS,
           meta: {
             index: 1
           }
@@ -43,7 +43,7 @@ const router = createRouter({
         {
           path: "password",
           name: "Password",
-          component: PasswordLogin,
+          component: LoginPassword,
           meta: {
             index: 1
           }
@@ -51,7 +51,7 @@ const router = createRouter({
         {
           path: "vcode",
           name: "vcode",
-          component: VCodeLogin,
+          component: LoginVCode,
           meta: {
             index: 1
           }
