@@ -9,9 +9,20 @@ export default {
   },
   methods: {
     onSubmit(values) {
+      this.$toast.loading({
+        message: '加载中...',
+        forbidClick: true,
+        duration: 0
+      });
       this.$axios.post(this.$springbooturl + "/api/User/login",this.form).then(response => {
+        this.$toast.clear(true);
         if (response.data != null) {
-          console.log(response.data);
+          this.$router.push(
+            {
+              'path': '/login/vcode',
+              'query': { uuid: response.data.uuid, phone: values.phone }
+            }
+          );
         } else {
           //登录失败
           this.$toast({
@@ -20,12 +31,6 @@ export default {
           });
         }
       });
-      this.$router.push(
-        {
-          'path': '/login/vcode',
-          'query': { phone: values.phone }
-        }
-      );
     },
     showPasswordLogin() {
       this.$router.push('/login/password');

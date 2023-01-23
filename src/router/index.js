@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import LoginView from '../views/LoginView.vue';
 import LoginSMS from '../components/LoginSMS.vue';
 import LoginPassword from '../components/LoginPassword.vue';
+import LoginRegister from '../components/LoginRegister.vue';
+import LoginRegisterVCode from '../components/LoginRegisterVCode.vue';
 import IndexViewVue from '../views/IndexView.vue';
 import LoginVCode from '../components/LoginVCode.vue';
 import IndexHome from '../views/IndexHome.vue';
@@ -44,6 +46,22 @@ const router = createRouter({
           path: "password",
           name: "Password",
           component: LoginPassword,
+          meta: {
+            index: 1
+          }
+        },
+        {
+          path: "register",
+          name: "Register",
+          component: LoginRegister,
+          meta: {
+            index: 1
+          }
+        },
+        {
+          path: "registerVCode",
+          name: "RegisterVCode",
+          component: LoginRegisterVCode,
           meta: {
             index: 1
           }

@@ -5,6 +5,7 @@ export default {
   data() {
     return {
       form: {
+        uuid: "",     //检验验证码（后端中Redis里的key）
         phone: ""
       }
     }
@@ -16,6 +17,7 @@ export default {
     onSubmit(values) {
       this.$axios.post(this.$springbooturl + "/api/User/login/code",{
         code: this.value,
+        uuid: this.form.uuid,
         phone: this.form.phone
       }).then(response => {
         if (response.data != null) {
@@ -55,6 +57,7 @@ export default {
   },
   mounted() {
     this.form.phone = this.$route.query.phone;
+    this.form.uuid = this.$route.query.uuid;
   },
   setup() {
     var value = ref('');
@@ -86,7 +89,7 @@ export default {
       />
       <div class="title">
         <h2>输入短信验证码</h2>
-        <span>{{ form.phone }}请输入测试验证码：123456</span>
+        <span>{{ this.$utils.tmPhone(form.phone) }}请输入测试验证码：123456</span>
       </div>
       <!-- 密码输入框 -->
       <van-password-input
