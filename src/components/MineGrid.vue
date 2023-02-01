@@ -33,7 +33,7 @@ export default {
     onclick(index) {
 
       switch(index){
-        case 0:
+        // case 0:
         // this.$router.push({name:'MineFeedbackAndHelp'})
 
         // case 1:

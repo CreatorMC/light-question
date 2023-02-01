@@ -15,6 +15,7 @@ import QuestionAnswerView from '../views/QuestionAnswerView.vue';
 import QuestionFinishView from '../views/QuestionFinishView.vue';
 import MineFeedbackAndHelp from '../views/MineFeedbackAndHelp.vue';
 import MineFeedback from '../views/MineFeedback.vue';
+import MineSet from '../views/MineSet.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -154,6 +155,14 @@ const router = createRouter({
       component: MineFeedbackAndHelp,
       meta: {
         index: 2
+      }
+    },
+    {
+      path: "/Mineset",
+      name: "MineSet",
+      component: MineSet,
+      meta: {
+        index: 3
       }
     },
     {

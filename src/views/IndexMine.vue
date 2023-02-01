@@ -35,7 +35,7 @@ export default {
     downloadIamge() {
       var toast = this.$toast;
       var pic = this.headPic;
-      this.$plus(()=>{
+      this.$plus(() => {
         // 创建下载任务
         var picurl = this.headPic;
         //图片保存到手机后的路径
@@ -63,6 +63,9 @@ export default {
         });
         dtask.start();//开始下载
       })
+    },
+    onclick() {
+      this.$router.push({ name: 'MineSet' })
     }
   },
   components: {
@@ -81,18 +84,18 @@ export default {
     <van-config-provider :theme-vars="themeVars">
       <van-popup v-model:show="show" :safe-area-inset-bottom="true">
         <div style="display: flex; flex-direction: column;">
-          <van-image fit="cover" width="150px" height="150px" :src="headPic" class="margin-bottom"/>
+          <van-image fit="cover" width="150px" height="150px" :src="headPic" class="margin-bottom" />
           <van-button plain color="#00000055" style="width: 100%;" @click="downloadIamge">
             <span style="color: #ffffff;">保存图片</span>
           </van-button>
         </div>
       </van-popup>
       <div class="cover">
-        <van-icon :name="setting" class="set" size="25px" />
+        <van-icon :name="setting" class="set" size="25px" @click="onclick"/>
         <van-icon :name="saomiao" class="saomiao" size="20px" />
         <van-icon :name="night" class="night" size="30px" />
         <van-icon :name="message" class="message" size="25px" />
-        <van-image round fit="cover" width="100px" height="100px" :src="headPic" @click="lookHead"/>
+        <van-image round fit="cover" width="100px" height="100px" :src="headPic" @click="lookHead" />
         <div>
           {{ userName }}
         </div>
